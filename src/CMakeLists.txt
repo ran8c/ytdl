@@ -15,3 +15,4 @@ function(ytdl_add_library lib_name)
 endfunction()
 
 ytdl_add_library(env LINK Boost::format Boost::process)
+ytdl_add_library(presets LINK Boost::format)

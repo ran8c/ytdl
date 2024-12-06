@@ -17,5 +17,7 @@ add_subdirectory(src)
 
 add_executable(ytdl "src/ytdl.cpp")
 ytdl_set_properties(ytdl)
-target_link_libraries(ytdl PRIVATE
-  ytdl::env)
+target_link_libraries(
+  ytdl PRIVATE
+  ytdl::env
+  ytdl::presets)

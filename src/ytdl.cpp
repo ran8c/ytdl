@@ -1,9 +1,8 @@
 #include "ytdl/env.hpp"
-
-#include <iostream>
+#include "ytdl/presets.hpp"
 
 int main() {
-    std::cout << "hello, world!\n";
     ytdl::env::ENV_VARS.print();
+    ytdl::presets::PRESET_LIST.print();
     return 0;
 }
