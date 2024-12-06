@@ -13,5 +13,9 @@ endfunction()
 
 find_package(Boost REQUIRED CONFIG COMPONENTS format process url)
 
+add_subdirectory(src)
+
 add_executable(ytdl "src/ytdl.cpp")
 ytdl_set_properties(ytdl)
+target_link_libraries(ytdl PRIVATE
+  ytdl::env)
