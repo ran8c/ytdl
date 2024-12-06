@@ -1,0 +1,22 @@
+{
+  "dependencies": [
+    "boost-format",
+    "boost-process",
+    "boost-url"
+  ],
+  "builtin-baseline": "26abb5b33f976246a5f2cdc45cdd073d51caff06",
+  "overrides": [
+    {
+      "name": "boost-format",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-process",
+      "version": "1.86.0"
+    },
+    {
+      "name": "boost-url",
+      "version": "1.86.0"
+    }
+  ]
+}

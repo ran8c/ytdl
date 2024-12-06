@@ -1,0 +1,8 @@
+# cmake build files
+build/*
+
+# clangd compilation database
+compile_commands.json
+
+# clangd cache files
+.cache/*
