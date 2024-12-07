@@ -7,73 +7,57 @@
 namespace ytdl::env {
 
 /**
- * @brief A class representing a single environment variable
+ * @brief Class storing a single environment variable.
  */
 class env_var {
    private:
     /**
-     * @brief The ALL_CAPS name of the environment variable
+     * The environment variable as a string.
      */
     std::string name;
 
     /**
-     * @brief Whether the environment variable is set
+     * Whether the environment variable was set in the current process.
      */
     bool status{false};
 
    public:
     /**
-     * @brief Construct an `env_var` object by parsing an environment variable
-     * @param The ALL_CAPS name of the environment variable to parse
+     * @brief Parse an environment variable from the current environment and store it.
+     * @param The name of the environment variable to parse.
+     * @return A constructed `env_var` object.
      */
     explicit env_var(const std::string_view&);
 
     /**
-     * @brief Get the ALL_CAPS name of the environment variable (`env_var.name`)
+     * @brief Get the name of the stored environment variable.
      */
     std::string_view get_name();
 
     /**
-     * @brief Get the status of the environment variable (`env_var.status`)
-     * @return `true` if the environment variable was set at startup
-     * @return `false` if the environment variable was not set at startup
+     * @brief Get the status of the stored environment variable.
      */
     [[nodiscard]] bool get_status() const;
 };
 
 /**
- * @brief A class representing a list of environment variables
+ * @brief Class storing a set of environment variables (`env_var`).
  */
 class current_env_vars {
    private:
     /**
-     * @brief The list of stored environment variables
+     * The set of environment variables (`env_var`) stored.
      */
     std::vector<env_var> vars;
 
    public:
-    /**
-     * @brief Construct a list of environment variables
-     * @param A list of environment variable names to store
-     */
     explicit current_env_vars(const std::vector<std::string>&);
 
-    /**
-     * @brief Get a stored environment variable
-     * @throw `std::invalid_argument` if passed variable isn't present in the stored list
-     */
     env_var& get(const std::string_view&);
 
-    /**
-     * @brief Prints all stored environment variables and their status
-     */
     void print();
 };
 
-/**
- * @brief Supported environment variables for `ytdl`
- */
-// NOLINTNEXTLINE: i am okay with `std::terminate` if allocating this fails
 static current_env_vars ENV_VARS{{"DEBUG", "VERBOSE"}};
 
 }  // namespace ytdl::env
