@@ -7,7 +7,7 @@
 #include <iostream>
 
 #include <boost/process/v1/environment.hpp>
-#include <boost/format.hpp>  // NOLINT: misc-include-cleaner
+#include <fmt/format.h>
 
 using namespace ytdl::env;
 
@@ -56,8 +56,8 @@ env_var& current_env_vars::get(const std::string_view& name) {
         }
     }
     // extra formatting to add the invalid parameter to the error message
-    const auto exception{boost::format("\"%1%\" not supported") % name};
-    throw std::invalid_argument(exception.str());
+    const std::string exception{fmt::format(R"("{}" not supported)", name)};
+    throw std::invalid_argument(exception);
 }
 
 /**
@@ -67,6 +67,6 @@ void current_env_vars::print() {
     for (auto& var : this->vars) {
         // `std::clog` is `std::cerr` with string buffering
         // using one over the other is about intentionality: `std::clog` is neither an error or standard output
-        std::clog << boost::format("[DEBUG] %s=%b\n") % var.get_name() % var.get_status();
+        std::clog << fmt::format("[DEBUG] {}={}\n", var.get_name(), var.get_status());
     }
 }

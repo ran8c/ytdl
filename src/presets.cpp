@@ -6,17 +6,16 @@
 #include <stdexcept>
 #include <iostream>
 
-#include <boost/format.hpp>  // NOLINT: misc-include-cleaner
+#include <fmt/format.h>
 
 using namespace ytdl::presets;
 
 namespace {
 
 std::string print_vector(const std::vector<std::string>& vec) {
-    boost::format vector_template{"%1%, "};
     std::string output{"["};
     for (const auto& item : vec) {
-        output.append(boost::str(vector_template % item));
+        output.append(fmt::format("{}, ", item));
     }
     // remove the last comma and space
     if (output.size() > 1) {
@@ -36,12 +35,12 @@ preset& supported_presets::get_preset(const std::string_view& selected_preset) {
             return preset;
         }
     }
-    auto exception{boost::format("preset \"%1%\" not supported") % selected_preset};
-    throw std::invalid_argument(exception.str());
+    const std::string exception{fmt::format(R"(preset "{}" not supported)", selected_preset)};
+    throw std::invalid_argument(exception);
 }
 
 void supported_presets::print() {
     for (const auto& preset : this->preset_list) {
-        std::cout << boost::format("[%1%, %2%]\n") % preset.name % print_vector(preset.flags);
+        std::cout << fmt::format("[{}, {}]\n", preset.name, print_vector(preset.flags));
     }
 }

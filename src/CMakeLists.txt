@@ -14,5 +14,5 @@ function(ytdl_add_library lib_name)
     endif()
 endfunction()
 
-ytdl_add_library(env LINK Boost::format Boost::process)
-ytdl_add_library(presets LINK Boost::format)
+ytdl_add_library(env LINK fmt::fmt Boost::process)
+ytdl_add_library(presets LINK fmt::fmt)

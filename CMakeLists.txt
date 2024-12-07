@@ -11,7 +11,8 @@ function(ytdl_set_properties selected_target)
                CXX_EXTENSIONS OFF)
 endfunction()
 
-find_package(Boost REQUIRED CONFIG COMPONENTS format process url)
+find_package(fmt REQUIRED)
+find_package(Boost REQUIRED CONFIG COMPONENTS process url)
 
 add_subdirectory(src)
 
