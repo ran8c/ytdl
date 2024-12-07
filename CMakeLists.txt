@@ -23,4 +23,5 @@ target_link_libraries(
   ytdl PRIVATE
   ytdl::utils
   ytdl::env
-  ytdl::presets)
+  ytdl::presets
+  ytdl::user_args)
