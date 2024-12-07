@@ -2,6 +2,7 @@
 #define YTDL_YTDL_ENV_HPP
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace ytdl::env {

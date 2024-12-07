@@ -1,9 +1,13 @@
 #include "ytdl/env.hpp"
 
+#include <string_view>
+#include <vector>
+#include <string>
+#include <stdexcept>
 #include <iostream>
 
-#include <boost/format.hpp>
-#include <boost/process.hpp>
+#include <boost/process/v1/environment.hpp>
+#include <boost/format.hpp>  // NOLINT: misc-include-cleaner
 
 using namespace ytdl::env;
 

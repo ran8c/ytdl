@@ -1,8 +1,12 @@
 #include "ytdl/presets.hpp"
 
+#include <string>
+#include <vector>
+#include <string_view>
+#include <stdexcept>
 #include <iostream>
 
-#include <boost/format.hpp>
+#include <boost/format.hpp>  // NOLINT: misc-include-cleaner
 
 using namespace ytdl::presets;
 
