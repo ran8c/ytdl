@@ -21,5 +21,6 @@ add_executable(ytdl "src/ytdl.cpp")
 ytdl_set_properties(ytdl)
 target_link_libraries(
   ytdl PRIVATE
+  ytdl::utils
   ytdl::env
   ytdl::presets)
