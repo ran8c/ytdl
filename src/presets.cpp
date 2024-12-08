@@ -9,12 +9,11 @@
 
 #include <fmt/format.h>
 
-using namespace ytdl::presets;
+using namespace ytdl;
 
+presets::supported_presets::supported_presets(const std::vector<preset>& presets) : preset_list(presets) {}
 
-supported_presets::supported_presets(const std::vector<preset>& presets) : preset_list(presets) {}
-
-preset& supported_presets::get_preset(const std::string_view& selected_preset) {
+presets::preset& presets::supported_presets::get_preset(const std::string_view& selected_preset) {
     for (auto& preset : this->preset_list) {
         if (preset.name == selected_preset) {
             return preset;
@@ -26,6 +25,6 @@ preset& supported_presets::get_preset(const std::string_view& selected_preset) {
 
 void presets::supported_presets::print() {
     for (const auto& preset : this->preset_list) {
-        std::cout << fmt::format("[{}, {}]\n", preset.name, ytdl::utils::rep_str_vec(preset.flags));
+        std::cout << fmt::format("[{}, {}]\n", preset.name, utils::rep_str_vec(preset.flags));
     }
 }

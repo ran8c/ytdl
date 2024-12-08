@@ -5,15 +5,14 @@
 
 #include <fmt/format.h>
 
-using namespace ytdl::user_args;
-using namespace ytdl::presets;
+using namespace ytdl;
 
 /**
  * This function is broken up into a set of checks, any of which can throw a
  * `std::invalid_argument` if they fail.
  */
-user_args ytdl::user_args::parse(supported_presets& presets, int argc,
-                                 char* argv[]) {  // NOLINT: argv is a c-style array
+user_args::user_args user_args::parse(supported_presets& presets, int argc,
+                                      char* argv[]) {  // NOLINT: argv is a c-style array
     user_args parsed_arguments{};
 
     // we need at two arguments, skipping argv[0]
@@ -37,13 +36,13 @@ user_args ytdl::user_args::parse(supported_presets& presets, int argc,
     return parsed_arguments;
 }
 
-void user_args::print() {
+void user_args::user_args::print() {
     fmt::print("preset: {}\n", this->selected_preset.name);
     fmt::print("desc: {}\n", this->selected_preset.desc);
 
     // TODO: create a utility function out of this
     std::string flags_representation{"["};
-    for (const auto& flag: this->selected_preset.flags) {
+    for (const auto& flag : this->selected_preset.flags) {
         flags_representation.append(fmt::format("{} ,", flag));
     }
     if (flags_representation.size() > 1) {
@@ -54,7 +53,7 @@ void user_args::print() {
     fmt::print("flags: {}\n", flags_representation);
 
     std::string url_rep{"["};
-    for (const auto& url: this->urls) {
+    for (const auto& url : this->urls) {
         url_rep.append(fmt::format("{}, ", url));
     }
     if (url_rep.size() > 1) {
