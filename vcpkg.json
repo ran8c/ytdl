@@ -1,7 +1,7 @@
 {
   "dependencies": [
     "fmt",
-    "boost-process",
+    "tiny-process-library",
     "boost-url"
   ],
   "builtin-baseline": "26abb5b33f976246a5f2cdc45cdd073d51caff06",
@@ -11,8 +11,8 @@
       "version": "11.0.2#1"
     },
     {
-      "name": "boost-process",
-      "version": "1.86.0"
+      "name": "tiny-process-library",
+      "version": "2.0.4#3"
     },
     {
       "name": "boost-url",
