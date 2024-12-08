@@ -1,24 +1,24 @@
 #include "ytdl/env.hpp"
 
-#include <string_view>
-#include <vector>
 #include <string>
+#include <string_view>
+#include <cstdlib>
+#include <vector>
 #include <stdexcept>
 #include <iostream>
 
-#include <boost/process/v1/environment.hpp>
 #include <fmt/format.h>
 
 using namespace ytdl::env;
 
 /**
- * Uses Boost::Process v1 to get environment variable from current process.
+ * Gets an environment variable from the current process.
  *
- * TODO: is there a way to do this with v2? v1 is deprecated...
+ * Calls `std::getenv()`, which is not thread safe.
  */
-env_var::env_var(const std::string_view& name) : name(name) {
-    auto current_env = boost::this_process::environment();
-    if (current_env.find(this->name) != current_env.end()) {
+env_var::env_var(const std::string& name) : name(name) {
+    const char* current_env = std::getenv(name.c_str());  // NOLINT
+    if (current_env != nullptr) {
         this->status = true;
     }
 }

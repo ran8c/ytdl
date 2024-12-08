@@ -27,8 +27,10 @@ class env_var {
      * @brief Parse an environment variable from the current environment and store it.
      * @param The name of the environment variable to parse.
      * @return A constructed `env_var` object.
+     *
+     * This function is not thread safe.
      */
-    explicit env_var(const std::string_view&);
+    explicit env_var(const std::string&);
 
     /**
      * @brief Get the name of the stored environment variable.
