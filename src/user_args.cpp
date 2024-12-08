@@ -1,5 +1,6 @@
 #include "ytdl/user_args.hpp"
 #include "ytdl/presets.hpp"
+#include "ytdl/utils.hpp"
 
 #include <stdexcept>
 
@@ -39,27 +40,6 @@ user_args::user_args user_args::parse(supported_presets& presets, int argc,
 void user_args::user_args::print() {
     fmt::print("preset: {}\n", this->selected_preset.name);
     fmt::print("desc: {}\n", this->selected_preset.desc);
-
-    // TODO: create a utility function out of this
-    std::string flags_representation{"["};
-    for (const auto& flag : this->selected_preset.flags) {
-        flags_representation.append(fmt::format("{} ,", flag));
-    }
-    if (flags_representation.size() > 1) {
-        flags_representation.resize(flags_representation.size() - 2);
-    }
-    flags_representation.append("]");
-
-    fmt::print("flags: {}\n", flags_representation);
-
-    std::string url_rep{"["};
-    for (const auto& url : this->urls) {
-        url_rep.append(fmt::format("{}, ", url));
-    }
-    if (url_rep.size() > 1) {
-        url_rep.resize(url_rep.size() - 2);
-    }
-    url_rep.append("]");
-
-    fmt::print("urls: {}\n", url_rep);
+    fmt::print("flags: {}\n", utils::rep_str_vec(this->selected_preset.flags));
+    fmt::print("urls: {}\n", utils::rep_str_vec(this->urls));
 }
