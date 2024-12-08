@@ -14,6 +14,7 @@ function(ytdl_add_library lib_name)
     endif()
 endfunction()
 
+# ytdl modules know about each other; LINK is for external libs only
 ytdl_add_library(utils LINK fmt::fmt)
 ytdl_add_library(env LINK fmt::fmt)
 ytdl_add_library(presets LINK fmt::fmt)
