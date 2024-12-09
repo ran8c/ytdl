@@ -9,7 +9,7 @@
 
 #include <fmt/format.h>
 
-using namespace ytdl;
+namespace env = ytdl::env;
 
 /**
  * Gets an environment variable from the current process.

@@ -10,7 +10,7 @@
 
 #include "ytdl/utils.hpp"
 
-using namespace ytdl;
+namespace presets = ytdl::presets;
 
 /**
  * Constructor for `presets::supported_presets`.

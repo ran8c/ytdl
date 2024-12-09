@@ -1,18 +1,21 @@
 #include <iostream>
+#include <stdexcept>
 
 #include "ytdl/env.hpp"
 #include "ytdl/presets.hpp"
 #include "ytdl/user_args.hpp"
 
-using namespace ytdl;
+namespace env = ytdl::env;
+namespace presets = ytdl::presets;
+namespace user_args = ytdl::user_args;
 
 int main(int argc, char* argv[])
 {
     // get supported environment variables
-    env::current_env_vars ENV_VARS {{"DEBUG", "VERBOSE"}};
+    env::current_env_vars env_vars {{"DEBUG", "VERBOSE"}};
 
     // create list of supported presets
-    presets::supported_presets PRESET_LIST {{
+    presets::supported_presets preset_list {{
         // presets related to audio
         preset {
             .name {"audio"},
@@ -85,12 +88,12 @@ int main(int argc, char* argv[])
     }};
 
     // currently, just print out debugging information
-    ENV_VARS.print();
-    PRESET_LIST.print();
+    env_vars.print();
+    preset_list.print();
 
     user_args::user_args user_args;
     try {
-        user_args = user_args::parse(PRESET_LIST, argc, argv);
+        user_args = user_args::parse(preset_list, argc, argv);
     } catch (const std::invalid_argument& err) {
         std::cerr << err.what() << "\n";
         return 1;

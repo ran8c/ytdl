@@ -1,8 +1,11 @@
+#include <string>
+#include <vector>
+
 #include "ytdl/utils.hpp"
 
 #include <fmt/format.h>
 
-using namespace ytdl;
+namespace utils = ytdl::utils;
 
 std::string utils::rep_str_vec(const std::vector<std::string>& vec)
 {

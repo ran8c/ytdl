@@ -1,22 +1,25 @@
 #include <stdexcept>
+#include <string>
 
 #include "ytdl/user_args.hpp"
 
+#include <fmt/base.h>
 #include <fmt/format.h>
 
 #include "ytdl/presets.hpp"
 #include "ytdl/utils.hpp"
 
-using namespace ytdl;
+namespace user_args = ytdl::user_args;
 
 /**
  * This function is broken up into a set of checks, any of which can throw a
  * `std::invalid_argument` if they fail.
  */
-user_args::user_args user_args::parse(supported_presets& presets,
-                                      int argc,
-                                      char* argv[])
-{  // NOLINT: argv is a c-style array
+user_args::user_args user_args::parse(
+    supported_presets& presets,
+    int argc,
+    char* argv[])  // NOLINT: argv is always a c-style array
+{
     user_args parsed_arguments {};
 
     // we need at two arguments, skipping argv[0]
