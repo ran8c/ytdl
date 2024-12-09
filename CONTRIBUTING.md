@@ -2,7 +2,7 @@
 
 - [ ] Fix any `clang-tidy` warnings (`cmake --build build/debug > build.log`)
 - [ ] Format all C++ files (`fd . src include -e cpp -e hpp -x clang-format -i`)
-- [ ] Format all CMakeLists files (`fd 'CMakeLists.txt' -x cmake-format -i`
+- [ ] Format all CMakeLists files (`fd 'CMakeLists.txt' -x cmake-format -i`)
 - [ ] Rebase your `feat` branch onto `main` and fix any conflicts (`git rebase main`)
 - [ ] Rebase your `feat` branch to squash and rewords your commits (`git rebase -i main`)
   - Try to organize your changes into a set of atomic commits (a small commit that only affects one thing)
