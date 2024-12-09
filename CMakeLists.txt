@@ -9,7 +9,8 @@ function(ytdl_set_properties selected_target)
     PROPERTIES CXX_STANDARD 20
                CXX_STANDARD_REQUIRED ON
                CXX_EXTENSIONS OFF
-               CXX_CLANG_TIDY "clang-tidy;-p;${CMAKE_BINARY_DIR}")
+               CXX_CLANG_TIDY "clang-tidy;-p;${CMAKE_BINARY_DIR}"
+  )
 endfunction()
 
 find_package(fmt REQUIRED)
@@ -21,8 +22,5 @@ add_subdirectory(src)
 add_executable(ytdl "src/ytdl.cpp")
 ytdl_set_properties(ytdl)
 target_link_libraries(
-  ytdl PRIVATE
-  ytdl::utils
-  ytdl::env
-  ytdl::presets
-  ytdl::user_args)
+  ytdl PRIVATE ytdl::utils ytdl::env ytdl::presets ytdl::user_args
+)
