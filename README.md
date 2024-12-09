@@ -5,7 +5,10 @@ A command-line interface for [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 ## Dependencies
 
 - [Clang](https://clang.llvm.org)
+  - [clang-tidy](https://clang.llvm.org/extra/clang-tidy)
+  - [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
 - [CMake](https://cmake.org)
+- [cmake-format](https://github.com/cheshirekow/cmake_format)
 - [vcpkg](https://vcpkg.io)
 
 ## Compilation
