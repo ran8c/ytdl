@@ -2,7 +2,7 @@
   "dependencies": [
     "fmt",
     "tiny-process-library",
-    "boost-url"
+    "ada-url"
   ],
   "builtin-baseline": "26abb5b33f976246a5f2cdc45cdd073d51caff06",
   "overrides": [
@@ -15,8 +15,8 @@
       "version": "2.0.4#3"
     },
     {
-      "name": "boost-url",
-      "version": "1.86.0"
+      "name": "ada-url",
+      "version": "2.9.2"
     }
   ]
 }

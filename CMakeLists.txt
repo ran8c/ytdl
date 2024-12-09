@@ -15,7 +15,7 @@ endfunction()
 
 find_package(fmt REQUIRED)
 find_package(tiny-process-library REQUIRED)
-find_package(Boost REQUIRED CONFIG COMPONENTS url)
+find_package(ada REQUIRED)
 
 add_subdirectory(src)
 
