@@ -12,7 +12,7 @@ A command-line interface for [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 
 ```bash
 cmake --prefix debug
-cmake --build build/debug
+cmake --build build/debug > build.log
 ln -s build/debug/compile_commands.json .
 ./build/debug/ytdl
 

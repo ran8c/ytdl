@@ -6,3 +6,6 @@ compile_commands.json
 
 # clangd cache files
 .cache/*
+
+# build logs
+*.log
