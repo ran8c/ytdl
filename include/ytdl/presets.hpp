@@ -2,15 +2,17 @@
 #define YTDL_YTDL_PRESETS_HPP
 
 #include <string>
-#include <vector>
 #include <string_view>
+#include <vector>
 
-namespace ytdl::presets {
+namespace ytdl::presets
+{
 
 /**
  * A configured preset for the downloader.
  */
-struct preset {
+struct preset
+{
     std::string name;
     std::string desc;
     std::vector<std::string> flags;
@@ -19,14 +21,15 @@ struct preset {
 /**
  * @brief Class storing a list of supported presets.
  */
-class supported_presets {
-   private:
+class supported_presets
+{
+  private:
     /**
      * The internal set of supported presets.
      */
     std::vector<preset> preset_list;
 
-   public:
+  public:
     /**
      * @brief Store a list of presets.
      * @param `std::vector<preset>&`: the list of presets to store.

@@ -1,19 +1,21 @@
 #ifndef YTDL_YTDL_USER_ARGS_HPP
 #define YTDL_YTDL_USER_ARGS_HPP
 
-#include "ytdl/presets.hpp"
-
-#include <vector>
 #include <string>
+#include <vector>
+
+#include "ytdl/presets.hpp"
 
 using namespace ytdl::presets;
 
-namespace ytdl::user_args {
+namespace ytdl::user_args
+{
 
 /**
  * A set of successfully parsed user arguments.
  */
-struct user_args {
+struct user_args
+{
     /**
      * A preset selected by the user.
      */
@@ -41,7 +43,9 @@ struct user_args {
  * @param `char*[]`: the program's `argv`
  * @throw `std::invalid_argument` if parsing fails.
  */
-user_args parse(supported_presets&, int, char*[]);  // NOLINT: argv is always a c-style array
+user_args parse(supported_presets&,
+                int,
+                char*[]);  // NOLINT: argv is always a c-style array
 
 }  // namespace ytdl::user_args
 

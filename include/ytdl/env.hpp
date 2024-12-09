@@ -5,13 +5,15 @@
 #include <string_view>
 #include <vector>
 
-namespace ytdl::env {
+namespace ytdl::env
+{
 
 /**
  * @brief Class storing a single environment variable.
  */
-class env_var {
-   private:
+class env_var
+{
+  private:
     /**
      * The environment variable as a string.
      */
@@ -20,11 +22,12 @@ class env_var {
     /**
      * Whether the environment variable was set in the current process.
      */
-    bool status{false};
+    bool status {false};
 
-   public:
+  public:
     /**
-     * @brief Parse an environment variable from the current environment and store it.
+     * @brief Parse an environment variable from the current environment and
+     * store it.
      * @param The name of the environment variable to parse.
      * @return A constructed `env_var` object.
      *
@@ -46,14 +49,15 @@ class env_var {
 /**
  * @brief Class storing a set of environment variables (`env_var`).
  */
-class current_env_vars {
-   private:
+class current_env_vars
+{
+  private:
     /**
      * The set of environment variables (`env_var`) stored.
      */
     std::vector<env_var> vars;
 
-   public:
+  public:
     explicit current_env_vars(const std::vector<std::string>&);
 
     env_var& get(const std::string_view&);

@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 
-namespace ytdl::utils {
+namespace ytdl::utils
+{
 
 /**
  * @brief Creates a string representation of a string vector.
@@ -14,6 +15,6 @@ namespace ytdl::utils {
  */
 std::string rep_str_vec(const std::vector<std::string>&);
 
-}
+}  // namespace ytdl::utils
 
 #endif
