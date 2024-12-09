@@ -2,7 +2,8 @@
   "dependencies": [
     "fmt",
     "tiny-process-library",
-    "ada-url"
+    "ada-url",
+    "doctest"
   ],
   "builtin-baseline": "26abb5b33f976246a5f2cdc45cdd073d51caff06",
   "overrides": [
@@ -17,6 +18,10 @@
     {
       "name": "ada-url",
       "version": "2.9.2"
+    },
+    {
+      "name": "doctest",
+      "version": "2.4.11"
     }
   ]
 }
