@@ -61,8 +61,6 @@ class current_env_vars {
     void print();
 };
 
-static current_env_vars ENV_VARS{{"DEBUG", "VERBOSE"}};
-
 }  // namespace ytdl::env
 
 #endif
