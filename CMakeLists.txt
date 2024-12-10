@@ -9,8 +9,14 @@ function(ytdl_set_properties selected_target)
     PROPERTIES CXX_STANDARD 20
                CXX_STANDARD_REQUIRED ON
                CXX_EXTENSIONS OFF
-               CXX_CLANG_TIDY "clang-tidy;-p;${CMAKE_BINARY_DIR}"
   )
+  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set_property(
+      TARGET ${selected_target}
+      APPEND
+      PROPERTY CXX_CLANG_TIDY "clang-tidy;-p;${CMAKE_BINARY_DIR}"
+    )
+  endif()
 endfunction()
 
 find_package(fmt REQUIRED)
