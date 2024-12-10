@@ -25,6 +25,11 @@ find_package(ada REQUIRED)
 
 add_subdirectory(src)
 
+if(YTDL_BUILD_TESTS)
+  message("-- ytdl: tests enabled")
+  add_subdirectory(test)
+endif()
+
 add_executable(ytdl "src/ytdl.cpp")
 ytdl_set_properties(ytdl)
 target_link_libraries(
