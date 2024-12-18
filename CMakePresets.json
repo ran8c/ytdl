@@ -7,7 +7,8 @@
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "CMAKE_BUILD_TYPE": "Debug",
-                "YTDL_BUILD_TESTS": true
+                "YTDL_BUILD_TESTS": true,
+                "YTDL_LINT": false
             }
         },
         {
@@ -16,7 +17,8 @@
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "CMAKE_BUILD_TYPE": "Release",
-                "YTDL_BUILD_TESTS": false
+                "YTDL_BUILD_TESTS": false,
+                "YTDL_LINT": false
             }
         }
     ]

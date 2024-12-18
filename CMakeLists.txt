@@ -10,7 +10,7 @@ function(ytdl_set_properties selected_target)
                CXX_STANDARD_REQUIRED ON
                CXX_EXTENSIONS OFF
   )
-  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  if(YTDL_LINT)
     set_property(
       TARGET ${selected_target}
       APPEND

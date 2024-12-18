@@ -19,6 +19,9 @@ cmake --build build/debug > build.log
 ln -s build/debug/compile_commands.json .
 ./build/debug/ytdl
 
+cmake --preset debug -DYTDL_LINT=true
+cmake --build build/debug
+
 cmake --prefix release
 cmake --build build/release
 cmake --install build/release --prefix ~/.local
