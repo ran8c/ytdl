@@ -11,6 +11,7 @@ function(ytdl_set_properties selected_target)
                CXX_EXTENSIONS OFF
   )
   if(YTDL_LINT)
+    message("-- ytdl: linting enabled on target ${selected_target}")
     set_property(
       TARGET ${selected_target}
       APPEND
