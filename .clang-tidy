@@ -4,6 +4,7 @@
 # misc-non-private-member-variables-in-classes: the options don't do anything
 # modernize-use-nodiscard: too aggressive, attribute is situationally useful
 # modernize-use-trailing-return-type: subjective, less attractive imo
+# readability-use-anyofalloff: subjective, less obvious to understand imo
 Checks: "*,\
   -google-readability-todo,\
   -altera-*,\
@@ -14,7 +15,8 @@ Checks: "*,\
   -llvmlibc-*,\
   -modernize-use-nodiscard,\
   -modernize-use-trailing-return-type,\
-  -misc-non-private-member-variables-in-classes"
+  -misc-non-private-member-variables-in-classes,\
+  -readability-use-anyofallof"
 WarningsAsErrors: ''
 CheckOptions:
   - key: 'bugprone-argument-comment.StrictMode'
