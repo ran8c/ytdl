@@ -11,7 +11,7 @@ std::string utils::rep_str_vec(const std::vector<std::string>& vec)
 {
     // [item, item, item]
 
-    std::string output {"["};
+    std::string output{"["};
     for (const auto& str : vec) {
         output.append(fmt::format("{}, ", str));
     }

@@ -20,7 +20,7 @@ user_args::user_args user_args::parse(
     int argc,
     char* argv[])  // NOLINT: argv is always a c-style array
 {
-    user_args parsed_arguments {};
+    user_args parsed_arguments{};
 
     // we need at two arguments, skipping argv[0]
     if (argc <= 2) {
@@ -32,7 +32,7 @@ user_args::user_args user_args::parse(
         parsed_arguments.selected_preset = presets.get_preset(
             argv[1]);  // NOLINT: pointer arithmetic is fine here
     } catch (const std::invalid_argument& err) {
-        const std::string exception {
+        const std::string exception{
             fmt::format("failed to parse preset\n{}", err.what())};
         throw std::invalid_argument(exception);
     }

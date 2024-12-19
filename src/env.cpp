@@ -68,7 +68,7 @@ env::env_var& env::current_env_vars::get(const std::string_view& name)
         }
     }
     // extra formatting to add the invalid parameter to the error message
-    const std::string exception {fmt::format(R"("{}" not supported)", name)};
+    const std::string exception{fmt::format(R"("{}" not supported)", name)};
     throw std::invalid_argument(exception);
 }
 

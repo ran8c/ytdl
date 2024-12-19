@@ -12,34 +12,34 @@ namespace user_args = ytdl::user_args;
 int main(int argc, char* argv[])
 {
     // get supported environment variables
-    env::current_env_vars env_vars {{"DEBUG", "VERBOSE"}};
+    env::current_env_vars env_vars{{"DEBUG", "VERBOSE"}};
 
     // create list of supported presets
-    presets::supported_presets preset_list {{
+    presets::supported_presets preset_list{{
         // presets related to audio
-        preset {
-            .name {"audio"},
-            .desc {"Extract and format audio from URLs"},
-            .flags {
+        preset{
+            .name{"audio"},
+            .desc{"Extract and format audio from URLs"},
+            .flags{
                 "--extract-audio",
                 "--audio-format mp3",
                 "--embed-metadata",
                 "--embed-thumbnail",
             },
         },
-        preset {
-            .name {"audio-low"},
-            .desc {"Rip audio from URLs"},
-            .flags {
+        preset{
+            .name{"audio-low"},
+            .desc{"Rip audio from URLs"},
+            .flags{
                 "--extract-audio",
             },
         },
 
         // presets related to video
-        preset {
-            .name {"video"},
-            .desc {"Extract and format video from URLs"},
-            .flags {
+        preset{
+            .name{"video"},
+            .desc{"Extract and format video from URLs"},
+            .flags{
                 "-f bv[height<=1080]+ba/b[height<=1080]",
                 "-S vcodec:h264,acodec:aac",
                 "--merge-output-format mp4",
@@ -48,19 +48,19 @@ int main(int argc, char* argv[])
                 "--sub-langs en.*,ja,zh.* --embed-subs",
             },
         },
-        preset {
-            .name {"video-low"},
-            .desc {"Rip video from URLs"},
-            .flags {
+        preset{
+            .name{"video-low"},
+            .desc{"Rip video from URLs"},
+            .flags{
                 "-f bv[height<=720]+ba/b[height<=720]",
                 "--merge-output-format mkv",
             },
         },
-        preset {
-            .name {"video-nores"},
-            .desc {
+        preset{
+            .name{"video-nores"},
+            .desc{
                 "Extract and format video from URLs (no resolution specifier)"},
-            .flags {
+            .flags{
                 "-S vcodec:h264,acodec:aac",
                 "--merge-output-format mp4",
                 "--embed-metadata",
@@ -68,19 +68,19 @@ int main(int argc, char* argv[])
                 "--sub-langs en.*,ja,zh.* --embed-subs",
             },
         },
-        preset {
-            .name {"video-low-nores"},
-            .desc {"Rip video from URLs (no resolution specifier)"},
-            .flags {
+        preset{
+            .name{"video-low-nores"},
+            .desc{"Rip video from URLs (no resolution specifier)"},
+            .flags{
                 "--merge-output-format mkv",
             },
         },
 
         // miscellaneous presets
-        preset {
-            .name {"thumbnail"},
-            .desc {"Extract thumbnail from URLs"},
-            .flags {
+        preset{
+            .name{"thumbnail"},
+            .desc{"Extract thumbnail from URLs"},
+            .flags{
                 "--skip-download",
                 "--write-thumbnail",
             },

@@ -26,7 +26,7 @@ namespace
  */
 bool validate_short_path(const std::string_view& pathname)
 {
-    const std::vector<std::string> valid_tokens {
+    const std::vector<std::string> valid_tokens{
         // regular url
         "watch",
         // channel url
@@ -78,17 +78,17 @@ std::string url_parsing::redirect_url(const std::string_view& incoming_url)
     };
 
     // handle dirty urls
-    ada::url_search_params queries {url->get_search()};  // NOLINT: ada-disable-misc-include-cleaner
+    ada::url_search_params queries{url->get_search()};  // NOLINT: ada-disable-misc-include-cleaner
     if (queries.has("v")) {
         // make sure the found query has a value before using
-        const auto found_id {queries.get("v")};
+        const auto found_id{queries.get("v")};
         if (found_id) {
             rebuild_query(found_id.value());
         }
     }
 
     // handle short video urls...
-    const std::string_view found_path {url->get_pathname().substr(1)};
+    const std::string_view found_path{url->get_pathname().substr(1)};
     // ...but only if we didn't confuse it with something else
     if (!validate_short_path(found_path)) {
         rebuild_query(std::string(found_path));

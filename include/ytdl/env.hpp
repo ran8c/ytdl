@@ -22,7 +22,7 @@ class env_var
     /**
      * Whether the environment variable was set in the current process.
      */
-    bool status {false};
+    bool status{false};
 
   public:
     /**

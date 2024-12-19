@@ -33,7 +33,7 @@ presets::preset& presets::supported_presets::get_preset(
             return preset;
         }
     }
-    const std::string exception {
+    const std::string exception{
         fmt::format(R"(preset "{}" not supported)", selected_preset)};
     throw std::invalid_argument(exception);
 }
