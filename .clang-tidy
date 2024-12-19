@@ -3,7 +3,7 @@
 # Enable ALL the things! Except not really
 # misc-non-private-member-variables-in-classes: the options don't do anything
 # modernize-use-nodiscard: too aggressive, attribute is situationally useful
-# modernize-use-trailing-return-type: i dislike the look of this option
+# modernize-use-trailing-return-type: subjective, less attractive imo
 Checks: "*,\
   -google-readability-todo,\
   -altera-*,\
