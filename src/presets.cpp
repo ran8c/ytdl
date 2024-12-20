@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <string_view>
@@ -44,6 +43,6 @@ void presets::supported_presets::print()
 {
     for (const auto &preset : this->m_preset_list)
     {
-        std::cout << fmt::format("[{}, {}]\n", preset.name, utils::rep_str_vec(preset.flags));
+        fmt::print("[{}, {}]\n", preset.name, utils::rep_str_vec(preset.flags));
     }
 }

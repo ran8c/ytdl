@@ -8,6 +8,7 @@
 #include "ytdl/env.hpp"
 
 #include <fmt/format.h>
+#include <fmt/ostream.h>
 
 namespace env = ytdl::env;
 
@@ -86,6 +87,6 @@ void env::current_env_vars::print()
         // `std::clog` is `std::cerr` with string buffering
         // using one over the other is about intentionality: `std::clog` is
         // neither an error or standard output
-        std::clog << fmt::format("[DEBUG] {}={}\n", var.get_name(), var.get_status());
+        fmt::print(std::clog, "[DEBUG] {}={}\n", var.get_name(), var.get_status());
     }
 }
