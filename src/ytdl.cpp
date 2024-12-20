@@ -9,7 +9,7 @@ namespace env = ytdl::env;
 namespace presets = ytdl::presets;
 namespace user_args = ytdl::user_args;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     // get supported environment variables
     env::current_env_vars env_vars{{"DEBUG", "VERBOSE"}};
@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
     // create list of supported presets
     presets::supported_presets preset_list{{
         // presets related to audio
-        preset{
+        presets::preset{
             .name{"audio"},
             .desc{"Extract and format audio from URLs"},
             .flags{
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
                 "--embed-thumbnail",
             },
         },
-        preset{
+        presets::preset{
             .name{"audio-low"},
             .desc{"Rip audio from URLs"},
             .flags{
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
         },
 
         // presets related to video
-        preset{
+        presets::preset{
             .name{"video"},
             .desc{"Extract and format video from URLs"},
             .flags{
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
                 "--sub-langs en.*,ja,zh.* --embed-subs",
             },
         },
-        preset{
+        presets::preset{
             .name{"video-low"},
             .desc{"Rip video from URLs"},
             .flags{
@@ -56,10 +56,9 @@ int main(int argc, char* argv[])
                 "--merge-output-format mkv",
             },
         },
-        preset{
+        presets::preset{
             .name{"video-nores"},
-            .desc{
-                "Extract and format video from URLs (no resolution specifier)"},
+            .desc{"Extract and format video from URLs (no resolution specifier)"},
             .flags{
                 "-S vcodec:h264,acodec:aac",
                 "--merge-output-format mp4",
@@ -68,7 +67,7 @@ int main(int argc, char* argv[])
                 "--sub-langs en.*,ja,zh.* --embed-subs",
             },
         },
-        preset{
+        presets::preset{
             .name{"video-low-nores"},
             .desc{"Rip video from URLs (no resolution specifier)"},
             .flags{
@@ -77,7 +76,7 @@ int main(int argc, char* argv[])
         },
 
         // miscellaneous presets
-        preset{
+        presets::preset{
             .name{"thumbnail"},
             .desc{"Extract thumbnail from URLs"},
             .flags{
@@ -92,9 +91,12 @@ int main(int argc, char* argv[])
     preset_list.print();
 
     user_args::user_args user_args;
-    try {
+    try
+    {
         user_args = user_args::parse(preset_list, argc, argv);
-    } catch (const std::invalid_argument& err) {
+    }
+    catch (const std::invalid_argument &err)
+    {
         std::cerr << err.what() << "\n";
         return 1;
     }

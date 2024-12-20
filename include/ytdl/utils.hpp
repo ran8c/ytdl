@@ -13,8 +13,8 @@ namespace ytdl::utils
  *
  * This is intended for print debugging.
  */
-std::string rep_str_vec(const std::vector<std::string>&);
+std::string rep_str_vec(const std::vector<std::string> &);
 
-}  // namespace ytdl::utils
+} // namespace ytdl::utils
 
 #endif

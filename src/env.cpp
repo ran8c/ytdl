@@ -16,12 +16,13 @@ namespace env = ytdl::env;
  *
  * Calls `std::getenv()`, which is not thread safe.
  */
-env::env_var::env_var(const std::string& name)
-    : name(name)
+env::env_var::env_var(const std::string &name)
+    : m_name(name)
 {
-    const char* current_env = std::getenv(name.c_str());  // NOLINT
-    if (current_env != nullptr) {
-        this->status = true;
+    const char *current_env = std::getenv(name.c_str()); // NOLINT
+    if (current_env != nullptr)
+    {
+        this->m_status = true;
     }
 }
 
@@ -30,7 +31,7 @@ env::env_var::env_var(const std::string& name)
  */
 std::string_view env::env_var::get_name()
 {
-    return this->name;
+    return this->m_name;
 }
 
 /**
@@ -38,18 +39,19 @@ std::string_view env::env_var::get_name()
  */
 bool env::env_var::get_status() const
 {
-    return this->status;
+    return this->m_status;
 }
 
 /**
  * Constructor for `current_env_vars`.
  */
-env::current_env_vars::current_env_vars(const std::vector<std::string>& vars)
+env::current_env_vars::current_env_vars(const std::vector<std::string> &vars)
 {
-    for (const auto& var : vars) {
+    for (const auto &var : vars)
+    {
         // `env_var` has a `std::string` constructor, so compiler implicitly
         // makes the `env_var` before appending.
-        this->vars.emplace_back(var);
+        this->m_vars.emplace_back(var);
     }
 }
 
@@ -58,12 +60,14 @@ env::current_env_vars::current_env_vars(const std::vector<std::string>& vars)
  *
  * @throw `std::invalid_argument` if `name` is not in current instance.
  */
-env::env_var& env::current_env_vars::get(const std::string_view& name)
+env::env_var &env::current_env_vars::get(const std::string_view &name)
 {
     // i could use `std::find_if()`, but it feels "too academic" compared to a
     // early-returning range loop
-    for (auto& var : this->vars) {
-        if (var.get_name() == name) {
+    for (auto &var : this->m_vars)
+    {
+        if (var.get_name() == name)
+        {
             return var;
         }
     }
@@ -77,11 +81,11 @@ env::env_var& env::current_env_vars::get(const std::string_view& name)
  */
 void env::current_env_vars::print()
 {
-    for (auto& var : this->vars) {
+    for (auto &var : this->m_vars)
+    {
         // `std::clog` is `std::cerr` with string buffering
         // using one over the other is about intentionality: `std::clog` is
         // neither an error or standard output
-        std::clog << fmt::format(
-            "[DEBUG] {}={}\n", var.get_name(), var.get_status());
+        std::clog << fmt::format("[DEBUG] {}={}\n", var.get_name(), var.get_status());
     }
 }

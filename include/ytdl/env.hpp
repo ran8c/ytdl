@@ -13,18 +13,17 @@ namespace ytdl::env
  */
 class env_var
 {
-  private:
     /**
      * The environment variable as a string.
      */
-    std::string name;
+    std::string m_name;
 
     /**
      * Whether the environment variable was set in the current process.
      */
-    bool status{false};
+    bool m_status{false};
 
-  public:
+public:
     /**
      * @brief Parse an environment variable from the current environment and
      * store it.
@@ -33,7 +32,7 @@ class env_var
      *
      * This function is not thread safe.
      */
-    explicit env_var(const std::string&);
+    explicit env_var(const std::string &);
 
     /**
      * @brief Get the name of the stored environment variable.
@@ -51,20 +50,19 @@ class env_var
  */
 class current_env_vars
 {
-  private:
     /**
      * The set of environment variables (`env_var`) stored.
      */
-    std::vector<env_var> vars;
+    std::vector<env_var> m_vars;
 
-  public:
-    explicit current_env_vars(const std::vector<std::string>&);
+public:
+    explicit current_env_vars(const std::vector<std::string> &);
 
-    env_var& get(const std::string_view&);
+    env_var &get(const std::string_view &);
 
     void print();
 };
 
-}  // namespace ytdl::env
+} // namespace ytdl::env
 
 #endif

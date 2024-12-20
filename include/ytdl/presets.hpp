@@ -23,25 +23,24 @@ struct preset
  */
 class supported_presets
 {
-  private:
     /**
      * The internal set of supported presets.
      */
-    std::vector<preset> preset_list;
+    std::vector<preset> m_preset_list;
 
-  public:
+public:
     /**
      * @brief Store a list of presets.
      * @param `std::vector<preset>&`: the list of presets to store.
      */
-    explicit supported_presets(const std::vector<preset>&);
+    explicit supported_presets(const std::vector<preset> &);
 
     /**
      * @brief Get a stored preset.
      * @param `std::string_view&`: the name of a preset to get.
      * @throw `std::invalid_argument` if no preset with given name was found.
      */
-    preset& get_preset(const std::string_view&);
+    preset &get_preset(const std::string_view &);
 
     /**
      * @brief Print out the list of supported presets.
@@ -51,6 +50,6 @@ class supported_presets
     void print();
 };
 
-}  // namespace ytdl::presets
+} // namespace ytdl::presets
 
 #endif

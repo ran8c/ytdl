@@ -6,8 +6,6 @@
 
 #include "ytdl/presets.hpp"
 
-using namespace ytdl::presets;
-
 namespace ytdl::user_args
 {
 
@@ -19,7 +17,7 @@ struct user_args
     /**
      * A preset selected by the user.
      */
-    preset selected_preset;
+    presets::preset selected_preset;
 
     /**
      * A list of URLs given by the user.
@@ -43,10 +41,9 @@ struct user_args
  * @param `char*[]`: the program's `argv`
  * @throw `std::invalid_argument` if parsing fails.
  */
-user_args parse(supported_presets&,
-                int,
-                char*[]);  // NOLINT: argv is always a c-style array
+// NOLINTNEXTLINE: argv is always a c-style array
+user_args parse(presets::supported_presets &, int, char *[]);
 
-}  // namespace ytdl::user_args
+} // namespace ytdl::user_args
 
 #endif
