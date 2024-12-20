@@ -55,7 +55,7 @@ std::string url_parsing::redirect_url(const std::string_view &incoming_url)
 {
     if (incoming_url.empty())
     {
-        throw std::invalid_argument("blank url given");
+        throw std::out_of_range("blank url given");
     }
 
     auto url = ada::parse(incoming_url); // NOLINT: ada-disable-misc-include-cleaner
