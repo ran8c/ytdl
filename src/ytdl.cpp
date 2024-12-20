@@ -3,10 +3,12 @@
 
 #include "ytdl/env.hpp"
 #include "ytdl/presets.hpp"
+#include "ytdl/url_parsing.hpp"
 #include "ytdl/user_args.hpp"
 
 namespace env = ytdl::env;
 namespace presets = ytdl::presets;
+namespace url_parsing = ytdl::url_parsing;
 namespace user_args = ytdl::user_args;
 
 int main(int argc, char *argv[])
@@ -86,10 +88,7 @@ int main(int argc, char *argv[])
         },
     }};
 
-    // currently, just print out debugging information
-    env_vars.print();
-    preset_list.print();
-
+    // first, grab user args
     user_args::user_args user_args;
     try
     {
@@ -100,6 +99,31 @@ int main(int argc, char *argv[])
         std::cerr << err.what() << "\n";
         return 1;
     }
+
+    // then, redirect the urls
+    for (auto &url : user_args.urls)
+    {
+        try
+        {
+            url = url_parsing::redirect_url(url);
+        }
+        catch (const std::out_of_range &err)
+        {
+            std::cerr << err.what() << "\n";
+            return -1;
+        }
+        catch (const std::invalid_argument &err)
+        {
+            std::cerr << err.what() << "; skipping redirect...\n";
+            continue;
+        }
+        catch (const std::runtime_error &err)
+        {
+            std::cerr << "[ERR] " << err.what() << "\n";
+            return 1;
+        }
+    }
+
     user_args.print();
 
     return 0;
