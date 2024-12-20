@@ -12,4 +12,5 @@ with section("parse"):
     }
   }
 with section("format"):
+  tab_size = 4
   dangle_parens = True
