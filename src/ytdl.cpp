@@ -8,10 +8,8 @@
 #include "ytdl/url_parsing.hpp"
 #include "ytdl/user_args.hpp"
 
-namespace env = ytdl::env;
-namespace presets = ytdl::presets;
-namespace url_parsing = ytdl::url_parsing;
-namespace user_args = ytdl::user_args;
+// NOLINTNEXTLINE: this file is a sole consumer, not part of a library
+using namespace ytdl;
 
 enum err_codes : std::int8_t
 {
