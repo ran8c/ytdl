@@ -9,3 +9,6 @@ compile_commands.json
 
 # build logs
 *.log
+
+# vscode files
+.vscode/*
