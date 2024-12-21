@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 #include <stdexcept>
 
@@ -10,6 +11,12 @@ namespace env = ytdl::env;
 namespace presets = ytdl::presets;
 namespace url_parsing = ytdl::url_parsing;
 namespace user_args = ytdl::user_args;
+
+enum err_codes : std::int8_t
+{
+    expected_err = 1,
+    unexpected_err = -1,
+};
 
 int main(int argc, char *argv[])
 {
@@ -97,7 +104,7 @@ int main(int argc, char *argv[])
     catch (const std::invalid_argument &err)
     {
         std::cerr << err.what() << "\n";
-        return 1;
+        return expected_err;
     }
 
     // then, redirect the urls
@@ -110,7 +117,7 @@ int main(int argc, char *argv[])
         catch (const std::out_of_range &err)
         {
             std::cerr << err.what() << "\n";
-            return -1;
+            return expected_err;
         }
         catch (const std::invalid_argument &err)
         {
@@ -120,7 +127,7 @@ int main(int argc, char *argv[])
         catch (const std::runtime_error &err)
         {
             std::cerr << "[ERR] " << err.what() << "\n";
-            return 1;
+            return unexpected_err;
         }
     }
 
