@@ -21,8 +21,8 @@ function(ytdl_set_properties selected_target)
 endfunction()
 
 find_package(fmt REQUIRED)
-find_package(tiny-process-library REQUIRED)
 find_package(ada REQUIRED)
+find_package(Boost REQUIRED COMPONENTS process)
 
 add_subdirectory(src)
 

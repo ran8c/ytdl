@@ -1,19 +1,15 @@
 {
-  "dependencies": [
-    "fmt",
-    "tiny-process-library",
-    "ada-url",
-    "doctest"
-  ],
   "builtin-baseline": "26abb5b33f976246a5f2cdc45cdd073d51caff06",
+  "dependencies": [
+    "ada-url",
+    "doctest",
+    "fmt",
+    "boost-process"
+  ],
   "overrides": [
     {
       "name": "fmt",
       "version": "11.0.2#1"
-    },
-    {
-      "name": "tiny-process-library",
-      "version": "2.0.4#3"
     },
     {
       "name": "ada-url",
@@ -22,6 +18,10 @@
     {
       "name": "doctest",
       "version": "2.4.11"
+    },
+    {
+      "name": "boost-process",
+      "version": "1.86.0"
     }
   ]
 }
