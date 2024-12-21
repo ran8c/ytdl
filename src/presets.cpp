@@ -5,6 +5,7 @@
 
 #include "ytdl/presets.hpp"
 
+#include <fmt/base.h>
 #include <fmt/format.h>
 
 #include "ytdl/utils.hpp"
