@@ -20,7 +20,7 @@ enum err_codes : std::int8_t
 int main(int argc, char *argv[])
 {
     // get supported environment variables
-    env::current_env_vars env_vars{{"DEBUG", "VERBOSE"}};
+    const env::current_env_vars env_vars{{"DEBUG", "VERBOSE"}};
 
     // create list of supported presets
     presets::supported_presets preset_list{{
