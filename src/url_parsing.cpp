@@ -61,7 +61,7 @@ std::string url_parsing::redirect_url(const std::string_view &incoming_url)
     auto url = ada::parse(incoming_url); // NOLINT: ada-disable-misc-include-cleaner
     if (!url)
     {
-        const std::string msg{fmt::format("failed to parse url: {}", incoming_url)};
+        const std::string msg{fmt::format(R"(failed to parse url: "{}")", incoming_url)};
         throw std::invalid_argument(msg);
     }
 

@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
         }
         catch (const std::invalid_argument &err)
         {
-            std::cerr << err.what() << "; skipping redirect...\n";
+            std::cerr << err.what() << " - skipping redirect...\n";
             continue;
         }
         catch (const std::runtime_error &err)
