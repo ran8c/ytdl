@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "ytdl/download.hpp"
 #include "ytdl/env.hpp"
 #include "ytdl/presets.hpp"
 #include "ytdl/url_parsing.hpp"
@@ -131,7 +132,19 @@ int main(int argc, char *argv[])
         }
     }
 
-    user_args.print();
+    // finally, call downloader on each url
+    for (const auto &url : user_args.urls)
+    {
+        try
+        {
+            download::download(user_args.selected_preset, url);
+        }
+        catch (const std::runtime_error &err)
+        {
+            std::cerr << err.what() << "\n";
+            return expected_err;
+        }
+    }
 
     return 0;
 }
